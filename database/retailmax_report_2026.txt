@@ -1,0 +1,55 @@
+============================================
+  RETAILMAX PVT. LTD. - 2026 SALES REPORT
+============================================
+
+Total Orders:     10,000
+Total Revenue:    Rs.29,34,59,003
+Total Items:      32,577
+Total Discount:   Rs.1,73,76,720
+Avg Order Value:  Rs.29,346
+
+MONTHLY BREAKDOWN:
+  Jan: Rs.2,37,09,449 (758 orders)
+  Feb: Rs.2,27,18,700 (720 orders)
+  Mar: Rs.2,33,58,111 (795 orders)
+  Apr: Rs.2,06,54,454 (644 orders)
+  May: Rs.1,96,60,968 (644 orders)
+  Jun: Rs.1,85,36,117 (606 orders)
+  Jul: Rs.1,53,94,179 (530 orders)
+  Aug: Rs.1,68,65,969 (492 orders)
+  Sep: Rs.1,80,77,048 (568 orders)
+  Oct: Rs.4,20,43,249 (1515 orders)
+  Nov: Rs.4,06,19,080 (1515 orders)
+  Dec: Rs.3,18,21,679 (1213 orders)
+
+REGION BREAKDOWN:
+  North: Rs.7,96,80,061 (2535 orders)
+  South: Rs.6,88,75,723 (2479 orders)
+  East: Rs.8,11,79,351 (2773 orders)
+  West: Rs.6,37,23,868 (2213 orders)
+
+CATEGORY BREAKDOWN:
+  Electronics: Rs.14,66,91,324 (849 orders)
+  Clothing: Rs.1,53,61,740 (1435 orders)
+  Footwear: Rs.1,93,22,322 (1201 orders)
+  Home Appliances: Rs.4,25,71,374 (966 orders)
+  Accessories: Rs.1,86,39,003 (1250 orders)
+  Audio: Rs.3,06,91,574 (983 orders)
+  Grocery & Essentials: Rs.90,43,185 (2249 orders)
+  Beauty & Personal Care: Rs.1,11,38,481 (1067 orders)
+
+TOP 10 PRODUCTS:
+  1. iPhone 16 Pro Max - Rs.2,77,49,575
+  2. Samsung Galaxy S25 Ultra - Rs.2,42,80,588
+  3. MacBook Pro M4 - Rs.2,27,50,963
+  4. iPad Pro M4 - Rs.1,31,75,027
+  5. Dell XPS 16 Laptop - Rs.1,18,68,162
+  6. PlayStation 5 Pro - Rs.1,17,99,477
+  7. Sony 65" OLED TV - Rs.1,14,76,305
+  8. Blue Star AC 1.5 Ton - Rs.97,82,545
+  9. Apple Watch Ultra 3 - Rs.93,59,838
+  10. Samsung 55" QLED TV - Rs.92,58,762
+
+============================================
+  GENERATED ON: 2026-07-30T13:10:32.896Z
+============================================

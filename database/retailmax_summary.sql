@@ -1,0 +1,42 @@
+-- ============================================
+-- RetailMax Pvt. Ltd. - Data Summary
+-- Auto-generated on 2026-07-30T13:10:32.711Z
+-- ============================================
+
+-- Total Sales Records: 10000
+-- Total Customers: 200
+-- Total Products: 60
+-- Total Revenue: Rs.29,34,59,003
+-- Total Discount: Rs.1,73,76,720
+-- Total Items Sold: 32,577
+-- Avg Order Value: Rs.29,346
+
+-- Monthly Revenue Breakdown:
+-- Jan 2026: Rs.2,37,09,449 (758 orders)
+-- Feb 2026: Rs.2,27,18,700 (720 orders)
+-- Mar 2026: Rs.2,33,58,111 (795 orders)
+-- Apr 2026: Rs.2,06,54,454 (644 orders)
+-- May 2026: Rs.1,96,60,968 (644 orders)
+-- Jun 2026: Rs.1,85,36,117 (606 orders)
+-- Jul 2026: Rs.1,53,94,179 (530 orders)
+-- Aug 2026: Rs.1,68,65,969 (492 orders)
+-- Sep 2026: Rs.1,80,77,048 (568 orders)
+-- Oct 2026: Rs.4,20,43,249 (1515 orders)
+-- Nov 2026: Rs.4,06,19,080 (1515 orders)
+-- Dec 2026: Rs.3,18,21,679 (1213 orders)
+
+-- Region-wise Revenue:
+-- North: Rs.7,96,80,061 (2535 orders)
+-- South: Rs.6,88,75,723 (2479 orders)
+-- East: Rs.8,11,79,351 (2773 orders)
+-- West: Rs.6,37,23,868 (2213 orders)
+
+-- Category-wise Revenue:
+-- Electronics: Rs.14,66,91,324 (849 orders)
+-- Clothing: Rs.1,53,61,740 (1435 orders)
+-- Footwear: Rs.1,93,22,322 (1201 orders)
+-- Home Appliances: Rs.4,25,71,374 (966 orders)
+-- Accessories: Rs.1,86,39,003 (1250 orders)
+-- Audio: Rs.3,06,91,574 (983 orders)
+-- Grocery & Essentials: Rs.90,43,185 (2249 orders)
+-- Beauty & Personal Care: Rs.1,11,38,481 (1067 orders)
