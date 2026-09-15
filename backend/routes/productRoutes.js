@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productController');
-const { authenticate } = require('../middleware/auth');
+const { authenticate, requireRole } = require('../middleware/auth');
 
 // All product routes require authentication
 router.use(authenticate);
@@ -22,13 +22,13 @@ router.get('/categories', productController.getCategories);
 // GET /api/products/:id - Get single product
 router.get('/:id', productController.getById);
 
-// POST /api/products - Create product
-router.post('/', productController.create);
+// POST /api/products - Create product (admin & manager only)
+router.post('/', requireRole('admin', 'manager'), productController.create);
 
-// PUT /api/products/:id - Update product
-router.put('/:id', productController.update);
+// PUT /api/products/:id - Update product (admin & manager only)
+router.put('/:id', requireRole('admin', 'manager'), productController.update);
 
-// DELETE /api/products/:id - Delete product
-router.delete('/:id', productController.delete);
+// DELETE /api/products/:id - Delete product (admin & manager only)
+router.delete('/:id', requireRole('admin', 'manager'), productController.delete);
 
 module.exports = router;

@@ -27,11 +27,36 @@ const App = {
             document.getElementById('userName').textContent = user.name;
             document.getElementById('userRole').textContent = user.role;
             document.getElementById('userAvatar').textContent = user.name.charAt(0).toUpperCase();
+            this.applyPermissions();
             this.navigate('dashboard');
         } else {
             document.getElementById('loginPage').style.display = 'flex';
             document.getElementById('appLayout').classList.remove('active');
         }
+    },
+
+    // Currently logged-in user's role
+    getRole() {
+        try {
+            const user = API.getUser();
+            return user ? user.role : null;
+        } catch (error) {
+            return null;
+        }
+    },
+
+    // Can this user manage (create/edit/delete) products, customers, imports?
+    isAdminOrManager() {
+        const role = this.getRole();
+        return role === 'admin' || role === 'manager';
+    },
+
+    // Hide admin/manager-only UI elements for users with insufficient privileges
+    applyPermissions() {
+        const manage = this.isAdminOrManager();
+        document.querySelectorAll('[data-manage="true"]').forEach(el => {
+            el.style.display = manage ? '' : 'none';
+        });
     },
 
     // Setup all event listeners
@@ -333,9 +358,10 @@ const App = {
             }
 
             let html = '';
+            const manage = this.isAdminOrManager();
             sales.forEach(s => {
                 const statusBadge = { 'delivered': 'badge-success', 'shipped': 'badge-info', 'processing': 'badge-warning', 'pending': 'badge-primary', 'cancelled': 'badge-danger' }[s.order_status] || 'badge-secondary';
-                html += '<tr><td>#' + s.id + '</td><td><strong>' + s.product_name + '</strong></td><td>' + s.customer_name + '</td><td>' + s.quantity + '</td><td>₹' + this.formatNumber(s.total_amount) + '</td><td>' + this.formatDate(s.sale_date) + '</td><td>' + (s.sales_executive || 'N/A') + '</td><td><span class="badge badge-info">' + (s.region || 'N/A') + '</span></td><td><span class="badge ' + statusBadge + '">' + s.order_status + '</span></td><td><div class="table-actions"><button class="btn btn-sm btn-secondary" onclick="App.editSale(' + s.id + ')">✏️</button><button class="btn btn-sm btn-danger" onclick="App.deleteSale(' + s.id + ')">🗑️</button></div></td></tr>';
+                html += '<tr><td>#' + s.id + '</td><td><strong>' + s.product_name + '</strong></td><td>' + s.customer_name + '</td><td>' + s.quantity + '</td><td>₹' + this.formatNumber(s.total_amount) + '</td><td>' + this.formatDate(s.sale_date) + '</td><td>' + (s.sales_executive || 'N/A') + '</td><td><span class="badge badge-info">' + (s.region || 'N/A') + '</span></td><td><span class="badge ' + statusBadge + '">' + s.order_status + '</span></td><td>' + (manage ? '<div class="table-actions"><button class="btn btn-sm btn-secondary" onclick="App.editSale(' + s.id + ')">✏️</button><button class="btn btn-sm btn-danger" onclick="App.deleteSale(' + s.id + ')">🗑️</button></div>' : '<span class="text-muted" style="font-size:12px;">View only</span>') + '</td></tr>';
             });
             container.innerHTML = html;
             this.renderSalesPagination(page, totalPages, total, filters);
@@ -536,8 +562,9 @@ const App = {
             }
 
             let html = '';
+            const manage = this.isAdminOrManager();
             result.products.forEach(p => {
-                html += '<tr><td><strong>' + p.name + '</strong></td><td><span class="badge badge-info">' + (p.category || 'N/A') + '</span></td><td>₹' + this.formatNumber(p.price) + '</td><td>₹' + this.formatNumber(p.cost) + '</td><td>' + p.stock + '</td><td><div class="table-actions"><button class="btn btn-sm btn-secondary" onclick="App.editProduct(' + p.id + ')">✏️</button><button class="btn btn-sm btn-danger" onclick="App.deleteProduct(' + p.id + ')">🗑️</button></div></td></tr>';
+                html += '<tr><td><strong>' + p.name + '</strong></td><td><span class="badge badge-info">' + (p.category || 'N/A') + '</span></td><td>₹' + this.formatNumber(p.price) + '</td><td>₹' + this.formatNumber(p.cost) + '</td><td>' + p.stock + '</td><td>' + (manage ? '<div class="table-actions"><button class="btn btn-sm btn-secondary" onclick="App.editProduct(' + p.id + ')">✏️</button><button class="btn btn-sm btn-danger" onclick="App.deleteProduct(' + p.id + ')">🗑️</button></div>' : '<span class="text-muted" style="font-size:12px;">View only</span>') + '</td></tr>';
             });
             container.innerHTML = html;
         } catch (error) {
@@ -641,8 +668,9 @@ const App = {
             }
 
             let html = '';
+            const manage = this.isAdminOrManager();
             result.customers.forEach(c => {
-                html += '<tr><td><strong>' + c.name + '</strong></td><td>' + (c.email || 'N/A') + '</td><td>' + (c.phone || 'N/A') + '</td><td>' + (c.city || 'N/A') + '</td><td><div class="table-actions"><button class="btn btn-sm btn-secondary" onclick="App.editCustomer(' + c.id + ')">✏️</button><button class="btn btn-sm btn-danger" onclick="App.deleteCustomer(' + c.id + ')">🗑️</button></div></td></tr>';
+                html += '<tr><td><strong>' + c.name + '</strong></td><td>' + (c.email || 'N/A') + '</td><td>' + (c.phone || 'N/A') + '</td><td>' + (c.city || 'N/A') + '</td><td>' + (manage ? '<div class="table-actions"><button class="btn btn-sm btn-secondary" onclick="App.editCustomer(' + c.id + ')">✏️</button><button class="btn btn-sm btn-danger" onclick="App.deleteCustomer(' + c.id + ')">🗑️</button></div>' : '<span class="text-muted" style="font-size:12px;">View only</span>') + '</td></tr>';
             });
             container.innerHTML = html;
         } catch (error) {

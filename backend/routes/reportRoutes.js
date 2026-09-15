@@ -5,7 +5,7 @@
 const express = require('express');
 const router = express.Router();
 const reportController = require('../controllers/reportController');
-const { authenticate } = require('../middleware/auth');
+const { authenticate, requireRole } = require('../middleware/auth');
 
 // All report routes require authentication
 router.use(authenticate);
@@ -34,7 +34,7 @@ router.get('/best-customers', reportController.getBestCustomers);
 // GET /api/reports/download-monthly - Download monthly report as Excel
 router.get('/download-monthly', reportController.downloadMonthlyReport);
 
-// POST /api/reports/import-excel - Import sales data from Excel
-router.post('/import-excel', reportController.importExcel);
+// POST /api/reports/import-excel - Import sales data from Excel (admin & manager only)
+router.post('/import-excel', requireRole('admin', 'manager'), reportController.importExcel);
 
 module.exports = router;

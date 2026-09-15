@@ -10,7 +10,12 @@ const User = require('../models/User');
 // Register a new user
 exports.register = async (req, res) => {
     try {
-        const { name, email, password, role } = req.body;
+        const { name, email, password } = req.body;
+
+        // Security: never trust a client-supplied role. New self-registered
+        // users are always granted the least-privileged 'staff' role. Admin
+        // and manager roles must be assigned by an administrator afterwards.
+        const role = 'staff';
 
         // Validate input
         if (!name || !email || !password) {

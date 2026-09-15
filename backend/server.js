@@ -64,7 +64,7 @@ const startServer = async () => {
     // Test database connection
     const dbConnected = await testConnection();
     if (!dbConnected) {
-        console.warn('⚠️  Starting server without database connection');
+        console.log('⚠️  Starting server without database connection');
     }
 
     app.listen(PORT, () => {

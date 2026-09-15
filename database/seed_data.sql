@@ -7,12 +7,15 @@ USE salespulse;
 
 -- ============================================
 -- SAMPLE USERS
--- Password: password123 (hashed with bcrypt)
+-- Passwords (real bcrypt hashes):
+--   admin@salespulse.com / admin123
+--   john@salespulse.com  / password123
+--   sarah@salespulse.com / password123
 -- ============================================
 INSERT INTO users (name, email, password, role) VALUES
-('Admin User', 'admin@salespulse.com', '$2a$10$YourHashedPasswordHere', 'admin'),
-('John Manager', 'john@salespulse.com', '$2a$10$YourHashedPasswordHere', 'manager'),
-('Sarah Staff', 'sarah@salespulse.com', '$2a$10$YourHashedPasswordHere', 'staff');
+('Admin User', 'admin@salespulse.com', '$2a$10$NA0k.J/qhIW5K1JmxjJmvufvZcStmiKdPZZZI6hw.fo7Q8VKCBk4.', 'admin'),
+('John Manager', 'john@salespulse.com', '$2a$10$1Sc7qWd/kcDZONeSJld5T.iXJQeiAQ/kvMAjv2bMrCVXJGXTEcEz.', 'manager'),
+('Sarah Staff', 'sarah@salespulse.com', '$2a$10$1Sc7qWd/kcDZONeSJld5T.iXJQeiAQ/kvMAjv2bMrCVXJGXTEcEz.', 'staff');
 
 -- ============================================
 -- SAMPLE PRODUCTS

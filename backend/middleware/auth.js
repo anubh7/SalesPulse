@@ -43,4 +43,17 @@ const isAdmin = (req, res, next) => {
     }
 };
 
-module.exports = { authenticate, isAdmin };
+// Role-based access control middleware factory.
+// Usage: router.post('/', requireRole('admin', 'manager'), handler)
+const requireRole = (...roles) => (req, res, next) => {
+    if (req.user && roles.includes(req.user.role)) {
+        next();
+    } else {
+        return res.status(403).json({
+            success: false,
+            message: 'Access denied. Insufficient privileges.'
+        });
+    }
+};
+
+module.exports = { authenticate, isAdmin, requireRole };

@@ -165,9 +165,9 @@ PORT=5000
 ### Step 5: Create a Default Admin User
 After setting up the database, run this SQL to create an admin user:
 ```sql
--- Password: admin123 (hashed)
+-- Password: admin123 (hashed with bcrypt)
 INSERT INTO users (name, email, password, role) VALUES
-('Admin', 'admin@salespulse.com', '$2a$10$8K1p/a0dL1LXMIgoEDFrwOfMQkfAjkMBcGmOqFqGxJHGxJYiGPEi', 'admin');
+('Admin', 'admin@salespulse.com', '$2a$10$NA0k.J/qhIW5K1JmxjJmvufvZcStmiKdPZZZI6hw.fo7Q8VKCBk4.', 'admin');
 ```
 
 ### Step 6: Start the Application
