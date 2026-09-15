@@ -11,6 +11,16 @@ require('dotenv').config({ path: __dirname + '/.env' });
 
 const { testConnection } = require('./config/database');
 
+// JWT secret guard: log clearly at startup and provide a temporary fallback so
+// login never hard-fails with a 500 due to a missing env var. Replace the
+// fallback by setting a strong JWT_SECRET in the hosting environment.
+if (!process.env.JWT_SECRET) {
+    console.warn('⚠️  JWT_SECRET is NOT set in the environment — using a temporary fallback. Set JWT_SECRET in your hosting dashboard!');
+    process.env.JWT_SECRET = 'salespulse-temp-fallback-do-not-use-in-production';
+} else {
+    console.log('🔐 JWT_SECRET loaded (' + process.env.JWT_SECRET.length + ' chars)');
+}
+
 // Import routes
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/productRoutes');

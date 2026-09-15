@@ -4,9 +4,6 @@
 -- Company: RetailMax Pvt. Ltd.
 -- ============================================
 
-CREATE DATABASE IF NOT EXISTS salespulse;
-USE salespulse;
-
 -- ============================================
 -- USERS TABLE
 -- Stores user authentication information
