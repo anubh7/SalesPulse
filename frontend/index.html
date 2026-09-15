@@ -263,8 +263,8 @@
                         <div class="card-header"><h3>Quick Actions</h3></div>
                         <div class="card-body">
                             <div style="display:flex;flex-direction:column;gap:12px;">
-                                <button class="btn btn-primary btn-block" onclick="App.navigate('sales')">➕ Add New Sale</button>
-                                <button class="btn btn-success btn-block" onclick="App.navigate('products')">📦 Manage Products</button>
+                                <button class="btn btn-primary btn-block" data-manage="true" onclick="App.navigate('sales')">➕ Add New Sale</button>
+                                <button class="btn btn-success btn-block" data-manage="true" onclick="App.navigate('products')">📦 Manage Products</button>
                                 <button class="btn btn-secondary btn-block" onclick="App.navigate('reports')">📄 View Reports</button>
                             </div>
                         </div>
@@ -282,7 +282,7 @@
                         <p>View, add, edit, and manage all sales transactions</p>
                     </div>
                     <div class="page-actions">
-                        <button class="btn btn-primary" onclick="App.showAddSaleModal()">➕ Add Sale</button>
+                        <button class="btn btn-primary" data-manage="true" onclick="App.showAddSaleModal()">➕ Add Sale</button>
                     </div>
                 </div>
 
